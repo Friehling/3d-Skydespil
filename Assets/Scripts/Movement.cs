@@ -32,17 +32,8 @@ public class Movement : MonoBehaviour
 
     Rigidbody rb;
 
-    private Alteruna.Avatar _avatar;
-
     private void Start()
     {
-        _avatar = GetComponent<Alteruna.Avatar>();
-
-        if (!_avatar.IsOwner)
-            return;
-
-
-
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
@@ -50,12 +41,6 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-
-        if (!_avatar.IsOwner)
-            return;
-
-
-
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerheight * 0.5f + 0.2f, whatIsGround);
         
