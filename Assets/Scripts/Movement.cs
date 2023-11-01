@@ -23,14 +23,10 @@ public class PlayerController : MonoBehaviour
     private float cameraYOffset = 0.4f;
     private Camera playerCamera;
 
-    private Alteruna.Avatar _avatar;
-
+    
     void Start()
     {
-        _avatar = GetComponent<Alteruna.Avatar>();
-
-        if (!_avatar.IsOwner)
-            return;
+        
 
         characterController = GetComponent<CharacterController>();
         playerCamera = Camera.main;
@@ -43,8 +39,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!_avatar.IsOwner)
-            return;
+        
 
         bool isRunning = false;
 
