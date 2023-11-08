@@ -8,15 +8,14 @@ using UnityEngine;
 
 public class PlayerListItem : MonoBehaviourPunCallbacks
 {
+
     [SerializeField] TMP_Text text;
-
-
     Player player;
-    public void SetUp(Player _player)
-    {
-        player = _player;
+
+    public void SetUp(Player _player) 
+    { 
+      player = _player;
         text.text = _player.NickName;
- 
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -26,16 +25,10 @@ public class PlayerListItem : MonoBehaviourPunCallbacks
             Destroy(gameObject);
         }
     }
-
     public override void OnLeftRoom()
     {
         Destroy(gameObject);
-
     }
-
-
-
-
 
 
 }

@@ -2893,8 +2893,8 @@ MonoBehaviour:
   roomNameText: {fileID: 980436757}
   roomListContent: {fileID: 1729500}
   roomListItemPrefab: {fileID: 3889418598606947749, guid: df7214b8238b437418ad42eba1eb5f1e, type: 3}
-  playerListContent: {fileID: 1247140376}
-  PlayerListItemPrefab: {fileID: 3891670627920453710, guid: 8f51b257c18ea3447be3b5529bbe9f57, type: 3}
+  PlayerListItemPrefab: {fileID: 1247140375}
+  playerListContent: {fileID: 9204903450970656165, guid: 8f51b257c18ea3447be3b5529bbe9f57, type: 3}
 --- !u!114 &1435894838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4120,6 +4120,10 @@ PrefabInstance:
     - target: {fileID: 3889418598606947749, guid: df7214b8238b437418ad42eba1eb5f1e, type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889418598606947749, guid: df7214b8238b437418ad42eba1eb5f1e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

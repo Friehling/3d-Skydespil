@@ -16,8 +16,8 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     [SerializeField] TMP_Text roomNameText;
     [SerializeField] Transform roomListContent;
     [SerializeField] GameObject roomListItemPrefab;
-    [SerializeField] Transform playerListContent;
     [SerializeField] GameObject PlayerListItemPrefab;
+    [SerializeField] Transform playerListContent;
     private void Awake()
     {
         Instance = this;
@@ -40,8 +40,8 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         MenuManager.Instance.OpenMenu("title");
 
         Debug.Log("Joined Lobby");
-
         PhotonNetwork.NickName = "Player" + Random.Range(0, 1000).ToString("0000");
+        
     }
 
     public void CreateRoom()
@@ -65,10 +65,9 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
         for (int i = 0; i < players.Count(); i++)
         {
-            Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);  
+            Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }
     }
-
 
     public override void OnCreateRoomFailed(short returnCode, string message) 
     {
@@ -84,7 +83,7 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public void JoinRoom(RoomInfo info)
     {
-        _ = PhotonNetwork.JoinRoom(info.Name);
+        PhotonNetwork.JoinRoom(info.Name);
         MenuManager.Instance.OpenMenu("loading");
     }
     
@@ -95,14 +94,15 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        foreach(Transform trans in roomListContent)
+       foreach(Transform trans in roomListContent)
         {
             Destroy(trans.gameObject);
         }
-       for (int i = 0; i < roomList.Count; i++)
+        for(int i = 0; i < roomList.Count; i++)
         {
             Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
         }
+
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
