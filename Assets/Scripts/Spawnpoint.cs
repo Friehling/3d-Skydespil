@@ -6,7 +6,7 @@ public class Spawnpoint : MonoBehaviour
 {
     [SerializeField] GameObject graphics;
 
-    private void Awake()
+    void Awake()
     {
         graphics.SetActive(false); 
     }
