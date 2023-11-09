@@ -15,9 +15,10 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     [SerializeField] TMP_Text errorText;
     [SerializeField] TMP_Text roomNameText;
     [SerializeField] Transform roomListContent;
+    [SerializeField] Transform playerListContent;
     [SerializeField] GameObject roomListItemPrefab;
     [SerializeField] GameObject PlayerListItemPrefab;
-    [SerializeField] Transform playerListContent;
+   
     private void Awake()
     {
         Instance = this;
