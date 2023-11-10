@@ -15,6 +15,7 @@ public class PlayerGroundCheck : MonoBehaviour
     {
         if (other.gameObject == playerController.gameObject)
             return;
+
         playerController.SetGroundedState(true);
     }
 
@@ -22,6 +23,7 @@ public class PlayerGroundCheck : MonoBehaviour
     {
         if (other.gameObject == playerController.gameObject)
             return;
+
         playerController.SetGroundedState(false);
     }
 
@@ -29,6 +31,7 @@ public class PlayerGroundCheck : MonoBehaviour
     {
         if (other.gameObject == playerController.gameObject)
             return;
+
         playerController.SetGroundedState(true);
     }
 
@@ -36,6 +39,7 @@ public class PlayerGroundCheck : MonoBehaviour
     {
         if (collision.gameObject == playerController.gameObject)
             return;
+
         playerController.SetGroundedState(true);
     }
 
@@ -43,6 +47,7 @@ public class PlayerGroundCheck : MonoBehaviour
     {
         if (collision.gameObject == playerController.gameObject)
             return;
+
         playerController.SetGroundedState(false);
     }
 
@@ -50,6 +55,7 @@ public class PlayerGroundCheck : MonoBehaviour
     {
         if (collision.gameObject == playerController.gameObject)
             return;
+
         playerController.SetGroundedState(true);
     }
 

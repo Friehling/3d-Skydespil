@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     {
         if (!PV.IsMine)
             return;
-
+        Cursor.visible = false;
         look();
         Move();
         Jump();
@@ -122,9 +122,9 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     }
     void look()
     {
-        transform.Rotate(Vector3.up * Input.GetAxisRaw("Mouse x") * mouseSensitivity);
+        transform.Rotate(Vector3.up*Input.GetAxisRaw("Mouse X")*mouseSensitivity);
 
-        verticalLockRotation += Input.GetAxisRaw("Mouse y") * mouseSensitivity;
+        verticalLockRotation += Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
         verticalLockRotation = Mathf.Clamp(verticalLockRotation, -90f, 90f);
 
         cameraHolder.transform.localEulerAngles = Vector3.left * verticalLockRotation;

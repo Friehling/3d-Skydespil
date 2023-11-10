@@ -266,10 +266,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraHolder: {fileID: 1169502510419273240}
   mouseSensitivity: 3
-  sprintSpeed: 0
-  walkSpeed: 0
-  jumpForce: 0
-  smoothTime: 0
+  sprintSpeed: 10
+  walkSpeed: 5
+  jumpForce: 300
+  smoothTime: 0.15
   items:
   - {fileID: 3764209012531888917}
   - {fileID: 4946512926016553921}
@@ -343,7 +343,7 @@ Transform:
   m_GameObject: {fileID: 2603780388330576908}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -1.051, z: 0}
   m_LocalScale: {x: 0.6, y: 0.1, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
