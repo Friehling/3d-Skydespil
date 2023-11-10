@@ -70,11 +70,11 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
         {
             Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }
+        
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);
-
     }
 
-    public override void OnMasterClientSwiched(Player newMasterClient)
+    public override void OnMasterClientSwitched(Player newMasterClient)
     {
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);
     }
