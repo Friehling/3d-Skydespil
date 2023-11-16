@@ -133,6 +133,9 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     }
 
 
-
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
 }
