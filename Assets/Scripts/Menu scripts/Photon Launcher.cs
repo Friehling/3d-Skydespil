@@ -8,7 +8,7 @@ using System.Linq;
 
 public class PhotonLauncher : MonoBehaviourPunCallbacks
 {
-
+   
     public static PhotonLauncher Instance;
 
     [SerializeField] TMP_InputField roomNameInputField;
@@ -137,5 +137,7 @@ public class PhotonLauncher : MonoBehaviourPunCallbacks
     {
         Application.Quit();
     }
+
+   
 
 }
