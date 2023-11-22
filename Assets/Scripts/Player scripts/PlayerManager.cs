@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using System.IO;
+using Photon.Realtime;
+using System.Linq;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -39,4 +41,15 @@ public class PlayerManager : MonoBehaviour
         PhotonNetwork.Destroy(controller);
         CreateController();
     }
+
+    public void GetKill()
+    {
+
+    }
+
+    public static PlayerManager Find(Player player)
+    {
+        return FindObjectsOfType<PlayerManager>().SingleOrDefault(x => x.PV.Owner == player);
+    }   
+
 }

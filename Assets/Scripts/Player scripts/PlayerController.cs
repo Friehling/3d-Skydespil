@@ -3,10 +3,14 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
+    [SerializeField] Image healthbarImage;
+    [SerializeField] GameObject ui;
+
     [SerializeField] GameObject cameraHolder;
 
     [SerializeField] float mouseSensitivity, sprintSpeed, walkSpeed, jumpForce, smoothTime;
@@ -26,7 +30,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     PhotonView PV;
 
-    const float maxHealth = 150;
+    const float maxHealth = 300;
     float currentHealth = maxHealth;
 
     PlayerManager playerManager;
@@ -52,6 +56,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         {
             Destroy(GetComponentInChildren<Camera>().gameObject);
             Destroy(rb);
+            Destroy(ui);
         }
     }
 
@@ -167,20 +172,20 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     public void TakeDamage(float damage)
     {
-        PV.RPC("RPC_TakeDamage", RpcTarget.All, damage);
+        PV.RPC(nameof(RPC_TakeDamage), PV.Owner, damage);
     }
 
     [PunRPC]
-    void RPC_TakeDamage(float damage)
+    void RPC_TakeDamage(float damage, PhotonMessageInfo info)
     {
-        if (!PV.IsMine)
-            return;
-
         currentHealth -= damage;
+
+        healthbarImage.fillAmount = currentHealth / maxHealth;
 
         if (currentHealth <= 0)
         {
             Die();
+            PlayerManager.Find(info.Sender).GetKill();
         }
 
     }
