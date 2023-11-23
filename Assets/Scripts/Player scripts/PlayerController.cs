@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     int itemIndex;
     int previousItemIndex = -1;
 
+    
 
     float verticalLockRotation;
     bool grounded;
@@ -150,7 +151,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
-        if(!PV.IsMine && targetPlayer == PV.Owner)
+        if(changedProps.ContainsKey("itemIndex") && !PV.IsMine && targetPlayer == PV.Owner)
         {
             EquipItem((int)changedProps["itemIndex"]);
         }
