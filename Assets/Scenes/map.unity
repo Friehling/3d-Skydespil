@@ -38153,8 +38153,9 @@ GameObject:
   - component: {fileID: 1733487588}
   - component: {fileID: 1733487587}
   - component: {fileID: 1733487586}
+  - component: {fileID: 1733487594}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: NPCEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38322,6 +38323,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1733487594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733487585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221cd4139c538e440828b97e07599b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1734009020
 PrefabInstance:
   m_ObjectHideFlags: 0
