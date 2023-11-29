@@ -1,7 +1,5 @@
-using UnityEngine.AI;
 using UnityEngine;
-
-
+using UnityEngine.AI;
 
 public class EnemyAiTutorial : MonoBehaviour
 {
@@ -29,23 +27,16 @@ public class EnemyAiTutorial : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerO").transform;
+        player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
         //Check for sight and attack range
-        // = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        //playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-<<<<<<< Updated upstream
-        //if (!playerInSightRange && !playerInAttackRange) Patroling();
-        //if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        //if (playerInAttackRange && playerInSightRange) AttackPlayer();
-    }
-}
-=======
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
@@ -69,7 +60,9 @@ public class EnemyAiTutorial : MonoBehaviour
         //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
+
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
     }
@@ -113,5 +106,12 @@ public class EnemyAiTutorial : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
 }
->>>>>>> Stashed changes
